@@ -11,7 +11,7 @@ having P.Incasso > 20000;
 
 Select Titolo
 From Film
-Where Titolo NOT In (Select F.Titolo
+Where Titolo NOT IN (Select F.Titolo
 From (Sale S inner join Proiezioni P on S.CodSala=P.CodSala)
 inner join Film F on P.CodFilm = F.CodFilm
 where S.Città = "Pisa");
