@@ -2,10 +2,16 @@
 sala e l’incasso totale (sempre del mese di gennaio 2005)
 
 Select S.Nome, Sum(P.Incasso)
-Form Sale S inner join Proiezioni P on S.CodSala=P.CodSala
+From Sale S inner join Proiezioni P on S.CodSala=P.CodSala
 Where DataProiezione BETWEEN "1/1/2005" and "31/1/2005" and S.Città = "Pisa"
 Group by S.CodSala
 having P.Incasso > 20000;
 
 28- I titoli dei film che non sono mai stati proiettati a Pisa
+
+Select F.Titolo
+From (Film F inner join Proiezioni P on P.CodFilm = F.CodFilm)
+inner join Sale S on S.CodSala=P.CodSala
+where S.Città="Pisa"
+
 29- I titoli dei film che sono stati proiettati solo a Pisa 
