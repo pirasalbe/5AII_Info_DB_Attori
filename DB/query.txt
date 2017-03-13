@@ -1,0 +1,11 @@
+27- Per ogni sala di Pisa, che nel mese di gennaio 2005 ha incassato più di 20000 €, il nome della
+sala e l’incasso totale (sempre del mese di gennaio 2005)
+
+Select S.Nome, Sum(P.Incasso)
+Form Sale S inner join Proiezioni P on S.CodSala=P.CodSala
+Where DataProiezione BETWEEN "1/1/2005" and "31/1/2005" and S.Città = "Pisa"
+Group by S.CodSala
+having P.Incasso > 20000;
+
+28- I titoli dei film che non sono mai stati proiettati a Pisa
+29- I titoli dei film che sono stati proiettati solo a Pisa 
